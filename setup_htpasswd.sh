@@ -32,3 +32,5 @@ if [ -n $RADICALE_NUM_USERS ] && [ -n $RADICALE_HTPASSWD_DIR ]; then
         done
     fi
 fi
+
+chown -R radicale:radicale /htpasswd
