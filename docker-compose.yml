@@ -3,10 +3,8 @@ version: '3.7'
 services:
 
   radicale:
-#    image: tomsquest/docker-radicale
-    build:
-      context: .
-      dockerfile: Dockerfile.extended
+#    image: nkay08/docker-radicale-htpasswd
+    build: .
     container_name: radicale
 #    ports:
 #      - 127.0.0.1:55232:5232
