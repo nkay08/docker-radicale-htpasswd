@@ -8,8 +8,8 @@ services:
       context: .
       dockerfile: Dockerfile.extended
     container_name: radicale
-    ports:
-      - 127.0.0.1:55232:5232
+#    ports:
+#      - 127.0.0.1:55232:5232
     init: true
     read_only: true
     security_opt:
@@ -26,7 +26,6 @@ services:
       interval: 30s
       retries: 3
     environment:
-      - RADICALE_HTPASSWD_DIR=/htpasswd
       - RADICALE_NUM_USERS=2
       - RADICALE_USER1=event
       - RADICALE_PASS1=event
@@ -36,34 +35,3 @@ services:
     volumes:
       - ./data:/data
       - ./config:/config:ro
-#      - ./docker-entrypoint.extended.sh:/docker-entrypoint-initdb.d/docker-entrypoint.extended.sh
-#    networks:
-#      baikal-network:
-#        aliases:
-#          - baikal
-
-#  baikal-db:
-#    container_name: baikal-db
-#    restart: always
-##    image: bianjp/mariadb-alpine:latest
-#    image: mariadb
-#    environment:
-#      MYSQL_ROOT_PASSWORD: baikal
-##      MYSQL_RANDOM_ROOT_PASSWORD: 1
-#      MYSQL_DATABASE: baikal
-#      MYSQL_USER: baikal
-#      MYSQL_PASSWORD: baikal
-#    volumes:
-#      - db:/var/lib/mysql
-#      - /etc/localtime:/etc/localtime:ro
-#    networks:
-#      baikal-network:
-#        aliases:
-#          - baikal-db
-
-#volumes:
-#  baikal:
-#  db:
-#
-#networks:
-#  baikal-network:
