@@ -1,0 +1,29 @@
+[admin]
+user = admin
+collection = .*
+permission = rw
+
+# Block access for the user "user" to everything.
+[block]
+user = user
+collection = .*
+permission =
+
+# Authenticated users can read and write their own collections.
+[owner-write]
+user = .+
+collection = %(login)s(/.*)?
+permission = rw
+
+# Allow authenticated user to read 'shared' collections in their home directory
+# (usually symlinks from other calendars)
+[allow-shared-read]
+user: .+
+collection: %(login)s/.+-shared.ics$
+permission: r
+
+# Everyone can read the root collection
+[read]
+user = .*
+collection =
+permission = r
